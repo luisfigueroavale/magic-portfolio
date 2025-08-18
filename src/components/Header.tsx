@@ -1,31 +1,14 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, ToggleButton, IconButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, work, social } from "@/resources";
-import { ThemeToggle } from "./ThemeToggle";
+import { routes, social } from "@/resources";
 import styles from "./Header.module.scss";
-import { iconLibrary } from "@/resources/icons";
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => {
-      window.removeEventListener('resize', checkMobile);
-    };
-  }, []);
 
   return (
     <>
@@ -86,12 +69,6 @@ export const Header = () => {
                   label="Work"
                   selected={pathname.startsWith("/work")}
                 />
-              )}
-              {display.themeSwitcher && (
-                <>
-                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                  <ThemeToggle />
-                </>
               )}
             </Flex>
           </Flex>

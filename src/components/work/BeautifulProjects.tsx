@@ -97,7 +97,7 @@ export function BeautifulProjects() {
         </Column>
 
         {/* Impact Stats */}
-        <Flex className={styles.statsContainer} gap="xl" horizontal="space-between">
+        <Flex className={styles.statsContainer} gap="xl" horizontal="center">
           <Column horizontal="center" gap="xs">
             <Text variant="display-strong-xl" onBackground="neutral-strong">
               100+

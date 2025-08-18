@@ -71,8 +71,11 @@
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
   padding: 16px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
 }
 
 .featureList {
@@ -116,5 +119,20 @@
   .statsContainer {
     flex-direction: column;
     gap: 16px;
+  }
+}
+
+/* Responsive fixes for stats container */
+@media (max-width: breakpoints.$s) {
+  .statsContainer {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .statsContainer > * {
+    align-items: center;
+    text-align: center;
   }
 }

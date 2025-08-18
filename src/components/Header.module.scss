@@ -41,13 +41,44 @@
 
 @media (max-width: breakpoints.$s) {
     .position {
-        top: auto;
+        top: 0;
         position: fixed;
-        bottom: var(--static-space-24);
+        width: 100%;
+        z-index: 10;
     }
 
     .mask {
-        transform: rotate(180deg);
-        bottom: 0;
+        /* Keep mask normal */
+    }
+    
+    .socialContainer {
+        display: none; /* Hide desktop social icons on mobile */
+    }
+    
+    .desktopLayout {
+        display: none; /* Hide desktop layout on mobile */
+    }
+    
+    .mobileLayout {
+        display: flex; /* Show mobile layout */
+    }
+}
+
+/* Layout control */
+.mobileLayout {
+    display: none; /* Hidden on desktop */
+}
+
+.desktopLayout {
+    display: flex; /* Show on desktop */
+}
+
+@media (max-width: breakpoints.$s) {
+    .mobileLayout {
+        display: flex; /* Show on mobile */
+    }
+    
+    .desktopLayout {
+        display: none; /* Hide on mobile */
     }
 }

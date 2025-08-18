@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Button,
   Column,
   Flex,
   Heading,
@@ -72,7 +71,7 @@ export default function About() {
           position="fixed"
           paddingLeft="24"
           gap="32"
-          hide="s"
+          className="s-flex-hide"
         >
           <TableOfContents structure={structure} about={about} />
         </Column>
@@ -93,7 +92,7 @@ export default function About() {
 
             {person.languages && person.languages.length > 0 && (
               <Flex wrap gap="8">
-                {person.languages.map((language, index) => (
+                {person.languages.map((language) => (
                   <Tag key={language} size="l">
                     {language}
                   </Tag>
@@ -174,8 +173,8 @@ export default function About() {
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                {about.work.experiences.map((experience) => (
+                  <Column key={`${experience.company}-${experience.role}`} fillWidth>
                     <Flex fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}

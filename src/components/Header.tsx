@@ -3,47 +3,29 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, ToggleButton } from "@once-ui-system/core";
+import { Fade, Flex, Line, ToggleButton, IconButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, gallery } from "@/resources";
+import { routes, display, person, about, work, social } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
-
-type TimeDisplayProps = {
-  timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
-};
-
-const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
-  const [currentTime, setCurrentTime] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-      };
-      const timeString = new Intl.DateTimeFormat(locale, options).format(now);
-      setCurrentTime(timeString);
-    };
-
-    updateTime();
-    const intervalId = setInterval(updateTime, 1000);
-
-    return () => clearInterval(intervalId);
-  }, [timeZone, locale]);
-
-  return <>{currentTime}</>;
-};
-
-export default TimeDisplay;
+import { iconLibrary } from "@/resources/icons";
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   return (
     <>
@@ -60,9 +42,12 @@ export const Header = () => {
         horizontal="center"
         data-border="rounded"
       >
+        <div className={styles.mask} />
+        {/* Left Section - Empty for balance */}
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Flex hide="s">{person.location}</Flex>}
         </Flex>
+        
+        {/* Center Section - Navigation */}
         <Flex fillWidth horizontal="center">
           <Flex
             background="page"
@@ -72,23 +57,29 @@ export const Header = () => {
             padding="4"
             horizontal="center"
             zIndex={1}
+            className={styles.navigationContainer}
           >
             <Flex gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
+                <ToggleButton 
+                  prefixIcon="home" 
+                  href="/" 
+                  selected={pathname === "/"}
+                  className={styles.navButton}
+                />
               )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
+              <Line background="neutral-alpha-medium" vert maxHeight="24" className="s-flex-hide" />
               {routes["/about"] && (
                 <>
                   <ToggleButton
-                    className="s-flex-hide"
+                    className={`s-flex-hide ${styles.navButton}`}
                     prefixIcon="person"
                     href="/about"
                     label={about.label}
                     selected={pathname === "/about"}
                   />
                   <ToggleButton
-                    className="s-flex-show"
+                    className={`s-flex-show ${styles.navButton}`}
                     prefixIcon="person"
                     href="/about"
                     selected={pathname === "/about"}
@@ -98,51 +89,18 @@ export const Header = () => {
               {routes["/work"] && (
                 <>
                   <ToggleButton
-                    className="s-flex-hide"
+                    className={`s-flex-show ${styles.navButton}`}
                     prefixIcon="grid"
                     href="/work"
                     label={work.label}
                     selected={pathname.startsWith("/work")}
                   />
                   <ToggleButton
-                    className="s-flex-show"
+                    className={`s-flex-hide ${styles.navButton}`}
                     prefixIcon="grid"
                     href="/work"
+                    label={work.label}
                     selected={pathname.startsWith("/work")}
-                  />
-                </>
-              )}
-              {routes["/blog"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="book"
-                    href="/blog"
-                    label={blog.label}
-                    selected={pathname.startsWith("/blog")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="book"
-                    href="/blog"
-                    selected={pathname.startsWith("/blog")}
-                  />
-                </>
-              )}
-              {routes["/gallery"] && (
-                <>
-                  <ToggleButton
-                    className="s-flex-hide"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    label={gallery.label}
-                    selected={pathname.startsWith("/gallery")}
-                  />
-                  <ToggleButton
-                    className="s-flex-show"
-                    prefixIcon="gallery"
-                    href="/gallery"
-                    selected={pathname.startsWith("/gallery")}
                   />
                 </>
               )}
@@ -155,6 +113,8 @@ export const Header = () => {
             </Flex>
           </Flex>
         </Flex>
+        
+        {/* Right Section - Social Media */}
         <Flex fillWidth horizontal="end" vertical="center">
           <Flex
             paddingRight="12"
@@ -162,8 +122,25 @@ export const Header = () => {
             vertical="center"
             textVariant="body-default-s"
             gap="20"
+            className={styles.socialContainer}
           >
-            <Flex hide="s">{display.time && <TimeDisplay timeZone={person.location} />}</Flex>
+            {/* Social Media Icons */}
+            <Flex gap="16" className={styles.socialIcons}>
+              {social.map(
+                (item) =>
+                  item.link && (
+                    <IconButton
+                      key={item.name}
+                      href={item.link}
+                      icon={item.icon}
+                      tooltip={item.name}
+                      size="s"
+                      variant="ghost"
+                      className={styles.socialIcon}
+                    />
+                  ),
+              )}
+            </Flex>
           </Flex>
         </Flex>
       </Flex>

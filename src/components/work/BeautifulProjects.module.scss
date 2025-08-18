@@ -1,0 +1,95 @@
+@use "../../components/breakpoints.scss" as breakpoints;
+
+.costcutsCard {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(249, 250, 251, 0.02) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.gemCard {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(249, 250, 251, 0.02) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+.productHuntBadge {
+  transition: all 0.3s ease;
+}
+
+.statsContainer {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.featureList {
+  li {
+    position: relative;
+    padding-left: 8px;
+    
+    &::before {
+      content: '•';
+      color: #3b82f6;
+      font-weight: bold;
+      position: absolute;
+      left: -12px;
+    }
+  }
+}
+
+.gemFeatureList {
+  li {
+    position: relative;
+    padding-left: 8px;
+    
+    &::before {
+      content: '•';
+      color: #059669;
+      font-weight: bold;
+      position: absolute;
+      left: -12px;
+    }
+  }
+}
+
+/* Minimal responsive fixes */
+@media (max-width: breakpoints.$s) {
+  .statsContainer {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

@@ -1,7 +1,6 @@
 /* :root {
   /*
   /* Example setup for custom colors */
-  /* Generate at: https://once-ui.com/customize */
   /*
   --scheme-brand-100: #08002f;
   --scheme-brand-200:  #04025c;
@@ -52,3 +51,279 @@
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
+
+/* Responsive Design - Mobile First Approach */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+  }
+  
+  p {
+    font-size: 0.95rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.25rem !important;
+  }
+  
+  h3 {
+    font-size: 1.125rem !important;
+  }
+  
+  p {
+    font-size: 0.875rem !important;
+  }
+}
+
+/* Responsive Container */
+@media (max-width: 768px) {
+  .maxWidth-m {
+    max-width: 100% !important;
+    padding: 0 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .maxWidth-m {
+    padding: 0 12px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .maxWidth-m {
+    padding: 0 8px !important;
+  }
+}
+
+/* Responsive Spacing */
+@media (max-width: 768px) {
+  .paddingX-l {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  .paddingY-xl {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .paddingX-l {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  
+  .paddingY-xl {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .paddingX-l {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  
+  .paddingY-xl {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .navigationContainer {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+}
+
+/* Responsive Social Icons */
+@media (max-width: 480px) {
+  .socialIcons {
+    gap: 8px !important;
+  }
+  
+  .socialIcon {
+    min-width: 32px !important;
+    height: 32px !important;
+  }
+}
+
+/* Responsive Project Cards */
+@media (max-width: 768px) {
+  .costcutsCard,
+  .gemCard {
+    padding: 20px !important;
+    gap: 16px !important;
+  }
+  
+  .projectHeader {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+  
+  .statsContainer {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  
+  .statItem {
+    min-width: 100px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .costcutsCard,
+  .gemCard {
+    padding: 16px !important;
+    gap: 12px !important;
+  }
+  
+  .projectHeader {
+    gap: 12px !important;
+  }
+  
+  .statsContainer {
+    gap: 12px !important;
+  }
+  
+  .statItem {
+    min-width: 80px !important;
+  }
+  
+  .linksContainer {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+}
+
+/* Responsive About Page */
+@media (max-width: 768px) {
+  .avatar {
+    min-width: 140px !important;
+    padding: 16px !important;
+  }
+  
+  .blockAlign {
+    align-self: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar {
+    min-width: 120px !important;
+    padding: 12px !important;
+  }
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: 12px !important;
+  }
+  
+  .mobile {
+    padding: 12px !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 8px !important;
+  }
+  
+  .mobile {
+    padding: 8px !important;
+    gap: 8px !important;
+  }
+}
+
+/* Ensure smooth transitions on all devices */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Touch-friendly interactions for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .navButton,
+  .socialIcon,
+  .caseStudyButton,
+  .websiteButton {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+  
+  .costcutsCard,
+  .gemCard {
+    cursor: default !important;
+  }
+  
+  .costcutsCard:hover,
+  .gemCard:hover {
+    transform: none !important;
+  }
+}
+
+/* High DPI display support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .projectTitle,
+  .projectDescription,
+  .featureItem,
+  .statNumber,
+  .statLabel {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

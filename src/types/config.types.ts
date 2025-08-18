@@ -142,9 +142,9 @@ export type SchemaConfig = {
  * Social links for organization.
  */
 export type SameAsConfig = {
-  threads: string;
+  threads?: string;
   linkedin: string;
-  discord: string;
+  discord?: string;
 };
 
 /**
@@ -152,7 +152,7 @@ export type SameAsConfig = {
  */
 export type OnceUIConfig = {
   display: DisplayConfig;
-  mailchimp: MailchimpConfig;
+  mailchimp?: MailchimpConfig;
   routes: RoutesConfig;
   protectedRoutes: ProtectedRoutesConfig;
   baseURL: string;

@@ -9,9 +9,18 @@
 }
 
 .avatar {
-    position: sticky;
     height: fit-content;
-    top: var(--static-space-64);
+    transition: all 0.3s ease;
+    
+    @media (max-width: breakpoints.$s) {
+        min-width: 140px;
+        padding: 16px;
+    }
+    
+    @media (max-width: 480px) {
+        min-width: 120px;
+        padding: 12px;
+    }
 }
 
 @media (max-width: breakpoints.$s) {
@@ -25,5 +34,27 @@
 
     .blockAlign {
         align-self: center;
+    }
+}
+
+// Additional responsive styles for better mobile experience
+@media (max-width: 768px) {
+    .avatar {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .avatar {
+        padding: 16px;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 360px) {
+    .avatar {
+        padding: 12px;
+        gap: 8px;
+        min-width: 100px;
     }
 }

@@ -37,6 +37,23 @@ export default async function RootLayout({
       )}
     >
       <head>
+        <link rel="icon" type="image/png" href="/luis-favicon.png?v=3" />
+        <link rel="icon" type="image/x-icon" href="/luis-favicon.png?v=3" />
+        <link rel="apple-touch-icon" href="/luis-favicon.png?v=3" />
+        <link rel="shortcut icon" href="/luis-favicon.png?v=3" />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              /* Hide Next.js development indicator */
+              [data-nextjs-dev-indicator] {
+                display: none !important;
+              }
+              [data-nextjs-dev-indicator] * {
+                display: none !important;
+              }
+            `,
+          }}
+        />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{

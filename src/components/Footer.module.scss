@@ -1,9 +1,83 @@
 @use "./breakpoints.scss" as breakpoints;
 
-@media (max-width: breakpoints.$s) {
-    .mobile {
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
-    }
+.footer {
+  transition: all 0.3s ease;
+}
+
+.mobile {
+  transition: all 0.3s ease;
+  
+  @media (max-width: breakpoints.$s) {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 8px;
+    gap: 8px;
+  }
+}
+
+.copyright {
+  transition: all 0.3s ease;
+  
+  @media (max-width: breakpoints.$s) {
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+}
+
+.socialContainer {
+  transition: all 0.3s ease;
+  
+  @media (max-width: breakpoints.$s) {
+    gap: 12px;
+    justify-content: center;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 8px;
+  }
+}
+
+.socialIcon {
+  transition: all 0.3s ease;
+  
+  @media (max-width: breakpoints.$s) {
+    min-width: 36px;
+    height: 36px;
+  }
+  
+  @media (max-width: 480px) {
+    min-width: 32px;
+    height: 32px;
+  }
+}
+
+.mobileSpacer {
+  @media (max-width: breakpoints.$s) {
+    height: 60px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 50px;
+  }
+}
+
+// Ensure proper spacing on very small screens
+@media (max-width: 360px) {
+  .mobile {
+    padding: 6px;
+    gap: 6px;
+  }
+  
+  .socialIcon {
+    min-width: 28px;
+    height: 28px;
+  }
 }

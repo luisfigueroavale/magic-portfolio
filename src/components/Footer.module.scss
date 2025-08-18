@@ -34,34 +34,36 @@
 }
 
 .socialIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  background: transparent;
-  color: #6b7280;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  border: 1px solid transparent;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  color: #6b7280 !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  border: 1px solid transparent !important;
+  pointer-events: auto !important;
   
   &:hover {
-    background: rgba(107, 114, 128, 0.1);
-    color: #9ca3af;
-    transform: translateY(-1px);
-    border-color: rgba(107, 114, 128, 0.3);
+    background: rgba(107, 114, 128, 0.1) !important;
+    color: #9ca3af !important;
+    transform: translateY(-1px) !important;
+    border-color: rgba(107, 114, 128, 0.3) !important;
   }
   
   &:active {
-    transform: translateY(0);
+    transform: translateY(0) !important;
   }
   
   svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
+    width: 16px !important;
+    height: 16px !important;
+    fill: currentColor !important;
+    color: inherit !important;
   }
 }
 

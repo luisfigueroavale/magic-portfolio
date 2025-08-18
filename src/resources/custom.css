@@ -1,3 +1,45 @@
+/* FORCE DARK MODE ALWAYS - DISABLE ALL LIGHT MODE */
+* {
+  color-scheme: dark only !important;
+}
+
+html,
+html[data-theme],
+html[data-theme="light"],
+html[data-theme="dark"],
+html[data-theme="system"] {
+  color-scheme: dark only !important;
+  background: #000 !important;
+}
+
+/* Override ANY light mode preferences from system/browser */
+@media (prefers-color-scheme: light) {
+  *,
+  html,
+  body,
+  html[data-theme],
+  html[data-theme="light"],
+  html[data-theme="dark"],
+  html[data-theme="system"] {
+    color-scheme: dark only !important;
+    background: #000 !important;
+  }
+}
+
+/* Force dark theme regardless of data-theme attribute */
+html[data-theme="light"] {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* Ensure all backgrounds stay dark */
+body,
+#__next,
+[data-theme="light"] {
+  background: #000 !important;
+  color: #fff !important;
+}
+
 /* :root {
   /*
   /* Example setup for custom colors */

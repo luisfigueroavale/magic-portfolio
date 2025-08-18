@@ -59,6 +59,27 @@ export default async function RootLayout({
               [data-nextjs-dev-indicator] * {
                 display: none !important;
               }
+              /* FORCE DARK MODE - OVERRIDE ANY LIGHT MODE */
+              * { color-scheme: dark only !important; }
+              html, body { background: #000 !important; color: #fff !important; }
+            `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Force dark theme immediately on load
+              document.documentElement.setAttribute('data-theme', 'dark');
+              document.documentElement.style.colorScheme = 'dark only';
+              // Prevent any theme changes
+              Object.defineProperty(document.documentElement, 'setAttribute', {
+                value: function(name, value) {
+                  if (name === 'data-theme' && value !== 'dark') {
+                    return; // Block any non-dark theme changes
+                  }
+                  return Element.prototype.setAttribute.call(this, name, value);
+                }
+              });
             `,
           }}
         />

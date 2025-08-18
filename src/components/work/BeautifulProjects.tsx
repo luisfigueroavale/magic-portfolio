@@ -1,6 +1,6 @@
 "use client";
 
-import { Column, Flex, Heading, SmartLink, Text } from "@once-ui-system/core";
+import { Column, Flex, Heading, SmartLink, Text, Badge } from "@once-ui-system/core";
 import { person } from "@/resources";
 import styles from "./BeautifulProjects.module.scss";
 
@@ -28,9 +28,9 @@ export function BeautifulProjects() {
           <Heading variant="display-strong-l" onBackground="neutral-strong">
             CostCuts
           </Heading>
-          <div className={styles.productHuntBadge}>
-            <span className={styles.trophy}>🏆</span> #4 Product of the Day in Product Hunt
-          </div>
+          <Badge className={styles.productHuntBadge}>
+            🏆 #4 Product of the Day in Product Hunt
+          </Badge>
         </Flex>
 
         {/* Description */}

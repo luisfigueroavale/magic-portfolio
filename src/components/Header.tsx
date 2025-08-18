@@ -70,39 +70,22 @@ export const Header = () => {
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" className="s-flex-hide" />
               {routes["/about"] && (
-                <>
-                  <ToggleButton
-                    className={`s-flex-hide ${styles.navButton}`}
-                    prefixIcon="person"
-                    href="/about"
-                    label={about.label}
-                    selected={pathname === "/about"}
-                  />
-                  <ToggleButton
-                    className={`s-flex-show ${styles.navButton}`}
-                    prefixIcon="person"
-                    href="/about"
-                    selected={pathname === "/about"}
-                  />
-                </>
+                <ToggleButton
+                  className={styles.navButton}
+                  prefixIcon="person"
+                  href="/about"
+                  label="About"
+                  selected={pathname === "/about"}
+                />
               )}
               {routes["/work"] && (
-                <>
-                  <ToggleButton
-                    className={`s-flex-show ${styles.navButton}`}
-                    prefixIcon="grid"
-                    href="/work"
-                    label={work.label}
-                    selected={pathname.startsWith("/work")}
-                  />
-                  <ToggleButton
-                    className={`s-flex-hide ${styles.navButton}`}
-                    prefixIcon="grid"
-                    href="/work"
-                    label={work.label}
-                    selected={pathname.startsWith("/work")}
-                  />
-                </>
+                <ToggleButton
+                  className={styles.navButton}
+                  prefixIcon="grid"
+                  href="/work"
+                  label="Work"
+                  selected={pathname.startsWith("/work")}
+                />
               )}
               {display.themeSwitcher && (
                 <>

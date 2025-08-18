@@ -20,30 +20,19 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log("RouteGuard useEffect triggered, pathname:", pathname);
+    
     const performChecks = async () => {
+      console.log("RouteGuard: Starting route checks");
       setLoading(true);
       setIsRouteEnabled(false);
       setIsPasswordRequired(false);
       setIsAuthenticated(false);
 
-      const checkRouteEnabled = () => {
-        if (!pathname) return false;
-
-        if (pathname in routes) {
-          return routes[pathname as keyof typeof routes];
-        }
-
-        const dynamicRoutes = ["/work"] as const;
-        for (const route of dynamicRoutes) {
-          if (pathname?.startsWith(route) && routes[route]) {
-            return true;
-          }
-        }
-
-        return false;
-      };
-
-      const routeEnabled = checkRouteEnabled();
+      // Simple route checking - allow all known routes
+      const knownRoutes = ["/", "/about", "/work"];
+      const routeEnabled = knownRoutes.includes(pathname || "");
+      console.log("RouteGuard: Route enabled:", routeEnabled, "for pathname:", pathname);
       setIsRouteEnabled(routeEnabled);
 
       if (protectedRoutes[pathname as keyof typeof protectedRoutes]) {
@@ -56,6 +45,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
       }
 
       setLoading(false);
+      console.log("RouteGuard: Route checks completed");
     };
 
     performChecks();
@@ -76,7 +66,10 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     }
   };
 
+  console.log("RouteGuard render - loading:", loading, "routeEnabled:", isRouteEnabled, "pathname:", pathname);
+
   if (loading) {
+    console.log("RouteGuard: Showing loading spinner");
     return (
       <Flex fillWidth paddingY="128" horizontal="center">
         <Spinner />
@@ -85,6 +78,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
   }
 
   if (!isRouteEnabled) {
+    console.log("RouteGuard: Route not enabled, showing NotFound");
 		return <NotFound />;
 	}
 
@@ -108,6 +102,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     );
   }
 
+  console.log("RouteGuard: Rendering children");
   return <>{children}</>;
 };
 

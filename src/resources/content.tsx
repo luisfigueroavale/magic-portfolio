@@ -5,7 +5,7 @@ const person: Person = {
   lastName: "Vale",
   name: `Luis Vale`,
   role: "Investment Banker | Founder | YC Pioneer Program",
-    avatar: "/images/Luis Profile Pic.png",
+    avatar: "/images/Luis%20Profile%20Pic.png",
   email: "luisvalefigueroa@gmail.com",
   location: "America/New_York",
   languages: ["English", "Spanish"], // Native or bilingual proficiency in English/Spanish
@@ -41,7 +41,7 @@ const home: Home = {
   path: "/",
   image: "/images/Luis Profile Pic.png",
   label: "Home",
-  title: `${person.name}`,
+  title: "Luis Vale",
   description: `Investment Banker | Founder | YC Pioneer Program`,
   headline: <>Luis Vale</>,
   featured: {

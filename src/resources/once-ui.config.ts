@@ -11,8 +11,8 @@ import {
 } from "@/types";
 import { home } from "./index";
 
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://luisvale.com";
+// IMPORTANT: Set your site URL via env for correct absolute URLs in meta tags on any domain
+const baseURL: string = process.env.NEXT_PUBLIC_SITE_URL || "https://luisvale.com";
 
 const routes: RoutesConfig = {
   "/": true,

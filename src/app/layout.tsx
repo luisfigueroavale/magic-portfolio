@@ -5,7 +5,7 @@ import '@/resources/custom.css'
 import classNames from "classnames";
 
 import { Background, Column, Flex, Meta, opacity, SpacingToken } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from '@/components';
+import { Footer, Header, Providers } from '@/components';
 import { baseURL, effects, fonts, style, dataStyle, home } from '@/resources';
 
 export async function generateMetadata() {
@@ -20,9 +20,9 @@ export async function generateMetadata() {
 
 export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <Flex
       suppressHydrationWarning
@@ -165,14 +165,12 @@ export default async function RootLayout({
               flex={1}
             >
               <Flex horizontal="center" fillWidth minHeight="0">
-                <RouteGuard>
-                  {children}
-                </RouteGuard>
+                {children}
               </Flex>
             </Flex>
             <Footer/>
           </Column>
         </Providers>
       </Flex>
-  );
+    );
 }

@@ -11,7 +11,6 @@ export const Footer = () => {
       fillWidth
       padding="8"
       horizontal="center"
-      mobileDirection="column"
       className={styles.footer}
     >
       <Flex
@@ -22,7 +21,6 @@ export const Footer = () => {
         gap="16"
         horizontal="space-between"
         vertical="center"
-        mobileDirection="column"
       >
         <Text 
           variant="body-default-s" 
@@ -36,15 +34,20 @@ export const Footer = () => {
           {social.map(
             (item) =>
               item.link && (
-                <IconButton
+                <SmartLink
                   key={item.name}
                   href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
                   variant="ghost"
+                  size="s"
                   className={styles.socialIcon}
-                />
+                  aria-label={item.name}
+                >
+                  <IconButton
+                    icon={item.icon}
+                    size="s"
+                    variant="ghost"
+                  />
+                </SmartLink>
               ),
           )}
         </Flex>

@@ -58,3 +58,40 @@
         min-width: 100px;
     }
 }
+
+// Fix for date alignment in work experience section
+.workExperienceHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    margin-bottom: 4px;
+    
+    // Ensure the date text has enough space and doesn't wrap
+    .dateText {
+        flex-shrink: 0;
+        margin-left: 16px;
+        white-space: nowrap;
+        text-align: right;
+    }
+    
+    // Ensure the company title has proper flex behavior
+    .companyTitle {
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+// Responsive adjustments for small screens
+@media (max-width: breakpoints.$s) {
+    .workExperienceHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        
+        .dateText {
+            margin-left: 0;
+            text-align: left;
+        }
+    }
+}

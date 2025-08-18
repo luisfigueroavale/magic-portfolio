@@ -17,80 +17,47 @@ export function BeautifulProjects() {
         radius="xl"
         padding="xl"
         gap="l"
-        style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(249, 250, 251, 0.05) 100%)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-          transition: 'all 0.3s ease',
-          cursor: 'pointer',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-8px)';
-          e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
-        }}
       >
         {/* Header with Product Hunt Badge */}
-        <Flex fillWidth horizontal="space-between" vertical="center" className={styles.projectHeader}>
-          <h2 className={styles.projectTitle}>
+        <Flex 
+          fillWidth 
+          horizontal="space-between" 
+          vertical="center"
+          className={styles.projectHeader}
+        >
+          <Heading variant="display-strong-l" onBackground="neutral-strong">
             CostCuts
-          </h2>
-          <Badge
-            background="accent-strong"
-            onBackground="accent-strong"
-            className={styles.productHuntBadge}
-            style={{
-              background: '#ff6154',
-              color: 'white',
-              padding: '8px 16px',
-              borderRadius: '20px',
-              fontSize: '14px',
-              fontWeight: '600',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-            }}
-          >
-            🏆 #4 Product of the Day
+          </Heading>
+          <Badge variant="success" className={styles.productHuntBadge}>
+            🏆 #4 Product of the Day in Product Hunt
           </Badge>
         </Flex>
 
         {/* Description */}
-        <p className={styles.projectDescription}>
+        <Text variant="body-default-l" onBackground="neutral-weak">
           A no-fee solution that helps smaller startups and SMBs save 10-30% on their software spend through collective buying power. 
           Built with my co-founders Lakshya Rajoria and Howard Zhu, CostCuts democratizes access to enterprise-level software discounts.
-        </p>
+        </Text>
 
         {/* Key Features */}
-        <Flex direction="column" gap="m" className={styles.featuresContainer}>
-          <p className={styles.featuresTitle}>
+        <Column gap="m">
+          <Text variant="body-strong-m" onBackground="neutral-strong">
             Key Features:
-          </p>
-          <Flex direction="column" gap="s" paddingLeft="m" className={styles.featuresList}>
-            <p className={styles.featureItem}>• No fees - we don't charge startups a dime</p>
-            <p className={styles.featureItem}>• Collective buying power for enterprise discounts</p>
-            <p className={styles.featureItem}>• 25% off Rippling, 10% off Vanta, 30% off LinkedIn Sales Navigator</p>
-          </Flex>
-        </Flex>
+          </Text>
+          <ul className={styles.featureList}>
+            <li>No fees - we don't charge startups a dime</li>
+            <li>Collective buying power for enterprise discounts</li>
+            <li>25% off Rippling, 10% off Vanta, 30% off LinkedIn Sales Navigator</li>
+          </ul>
+        </Column>
 
         {/* Links */}
-        <Flex gap="m" wrap className={styles.linksContainer}>
-          <SmartLink
-            suffixIcon="arrowRight"
-            href="/work/costcuts"
-            className={styles.caseStudyButton}
-          >
-            <span>Read Case Study</span>
+        <Flex gap="m" horizontal="start">
+          <SmartLink href="/work/costcuts" variant="primary" size="m">
+            Read Case Study →
           </SmartLink>
-          <SmartLink
-            suffixIcon="arrowUpRightFromSquare"
-            href="https://www.producthunt.com/products/costcuts"
-            className={styles.websiteButton}
-          >
-            <span>Visit Website</span>
+          <SmartLink href="https://www.producthunt.com/products/costcuts" variant="ghost" size="m">
+            Visit Website ↗
           </SmartLink>
         </Flex>
       </Flex>
@@ -105,76 +72,65 @@ export function BeautifulProjects() {
         radius="xl"
         padding="xl"
         gap="l"
-        style={{
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(249, 250, 251, 0.05) 100%)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-          transition: 'all 0.3s ease',
-          cursor: 'pointer',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-8px)';
-          e.currentTarget.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.25)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
-        }}
       >
         {/* Header */}
-        <h2 className={styles.projectTitle}>
+        <Heading variant="display-strong-l" onBackground="neutral-strong">
           Global Equity Management (GEM)
-        </h2>
+        </Heading>
 
         {/* Description */}
-        <p className={styles.projectDescription}>
+        <Text variant="body-default-l" onBackground="neutral-weak">
           The leading intercollegiate student-run finance organization extending opportunities to 100+ students across 10+ universities internationally. 
           Founded in August 2022, GEM bridges the gap between academia and the financial industry.
-        </p>
+        </Text>
 
         {/* Key Programs */}
-        <Flex direction="column" gap="m" className={styles.featuresContainer}>
-          <p className={styles.featuresTitle}>
+        <Column gap="m">
+          <Text variant="body-strong-m" onBackground="neutral-strong">
             Key Programs:
-          </p>
-          <Flex direction="column" gap="s" paddingLeft="m" className={styles.featuresList}>
-            <p className={styles.featureItem}>• Undergraduate Stock Pitch Competition</p>
-            <p className={styles.featureItem}>• Educational Workshops & Mentorship Programs</p>
-            <p className={styles.featureItem}>• Industry Partnerships & Professional Networking</p>
-          </Flex>
-        </Flex>
+          </Text>
+          <ul className={styles.gemFeatureList}>
+            <li>Undergraduate Stock Pitch Competition</li>
+            <li>Educational Workshops & Mentorship Programs</li>
+            <li>Industry Partnerships & Professional Networking</li>
+          </ul>
+        </Column>
 
         {/* Impact Stats */}
-        <Flex gap="l" wrap style={{ marginTop: '16px' }} className={styles.statsContainer} horizontal="center">
-          <Flex direction="column" align="center" className={styles.statItem}>
-            <span className={styles.statNumber}>100+</span>
-            <p className={styles.statLabel}>Students Impacted</p>
-          </Flex>
-          <Flex direction="column" align="center" className={styles.statItem}>
-            <span className={styles.statNumber}>10+</span>
-            <p className={styles.statLabel}>Universities</p>
-          </Flex>
-          <Flex direction="column" align="center" className={styles.statItem}>
-            <span className={styles.statNumber}>2022</span>
-            <p className={styles.statLabel}>Founded</p>
-          </Flex>
+        <Flex className={styles.statsContainer} gap="xl" horizontal="space-between">
+          <Column horizontal="center" gap="xs">
+            <Text variant="display-strong-xl" onBackground="neutral-strong">
+              100+
+            </Text>
+            <Text variant="body-default-s" onBackground="neutral-weak">
+              Students Impacted
+            </Text>
+          </Column>
+          <Column horizontal="center" gap="xs">
+            <Text variant="display-strong-xl" onBackground="neutral-strong">
+              10+
+            </Text>
+            <Text variant="body-default-s" onBackground="neutral-weak">
+              Universities
+            </Text>
+          </Column>
+          <Column horizontal="center" gap="xs">
+            <Text variant="display-strong-xl" onBackground="neutral-strong">
+              2022
+            </Text>
+            <Text variant="body-default-s" onBackground="neutral-weak">
+              Founded
+            </Text>
+          </Column>
         </Flex>
 
         {/* Links */}
-        <Flex gap="m" wrap className={styles.linksContainer}>
-          <SmartLink
-            suffixIcon="arrowRight"
-            href="/work/global-equity-management"
-            className={styles.caseStudyButton}
-          >
-            <span>Read Case Study</span>
+        <Flex gap="m" horizontal="start">
+          <SmartLink href="/work/global-equity-management" variant="primary" size="m">
+            Read Case Study →
           </SmartLink>
-          <SmartLink
-            suffixIcon="arrowUpRightFromSquare"
-            href="https://www.globalequitymanagement.org/"
-            className={styles.websiteButton}
-          >
-            <span>Visit Website</span>
+          <SmartLink href="https://www.globalequitymanagement.org/" variant="ghost" size="m">
+            Visit Website ↗
           </SmartLink>
         </Flex>
       </Flex>

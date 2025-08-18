@@ -82,7 +82,7 @@ export const Footer = () => {
         </div>
       </Flex>
       
-      <Flex height="80" show="s" className={styles.mobileSpacer} />
+      <Flex height="80" className={styles.mobileSpacer} />
     </Flex>
   );
 };

@@ -21,14 +21,14 @@ export function BeautifulProjects() {
         {/* Header with Product Hunt Badge */}
         <Flex 
           fillWidth 
-          horizontal="space-between" 
+          horizontal="between" 
           vertical="center"
           className={styles.projectHeader}
         >
           <Heading variant="display-strong-l" onBackground="neutral-strong">
             CostCuts
           </Heading>
-          <Badge variant="success" className={styles.productHuntBadge}>
+          <Badge className={styles.productHuntBadge}>
             🏆 #4 Product of the Day in Product Hunt
           </Badge>
         </Flex>
@@ -53,10 +53,10 @@ export function BeautifulProjects() {
 
         {/* Links */}
         <Flex gap="m" horizontal="start">
-          <SmartLink href="/work/costcuts" variant="primary" size="m">
+          <SmartLink href="/work/costcuts">
             Read Case Study →
           </SmartLink>
-          <SmartLink href="https://www.producthunt.com/products/costcuts" variant="ghost" size="m">
+          <SmartLink href="https://www.producthunt.com/products/costcuts">
             Visit Website ↗
           </SmartLink>
         </Flex>
@@ -126,10 +126,10 @@ export function BeautifulProjects() {
 
         {/* Links */}
         <Flex gap="m" horizontal="start">
-          <SmartLink href="/work/global-equity-management" variant="primary" size="m">
+          <SmartLink href="/work/global-equity-management">
             Read Case Study →
           </SmartLink>
-          <SmartLink href="https://www.globalequitymanagement.org/" variant="ghost" size="m">
+          <SmartLink href="https://www.globalequitymanagement.org/">
             Visit Website ↗
           </SmartLink>
         </Flex>

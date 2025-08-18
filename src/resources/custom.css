@@ -1,43 +1,65 @@
-/* FORCE DARK MODE ALWAYS - DISABLE ALL LIGHT MODE */
-* {
+/* BULLETPROOF DARK MODE - OVERRIDE ALL LIGHT MODE DETECTION */
+
+/* Force dark color scheme on all elements */
+*,
+*::before,
+*::after {
   color-scheme: dark only !important;
 }
 
+/* Force dark theme on root elements regardless of data-theme */
 html,
 html[data-theme],
 html[data-theme="light"],
 html[data-theme="dark"],
-html[data-theme="system"] {
+html[data-theme="system"],
+html[data-theme="auto"] {
   color-scheme: dark only !important;
-  background: #000 !important;
+  background-color: var(--static-black, #000) !important;
 }
 
-/* Override ANY light mode preferences from system/browser */
+/* Override system light mode preferences completely */
 @media (prefers-color-scheme: light) {
   *,
+  *::before,
+  *::after,
   html,
   body,
   html[data-theme],
   html[data-theme="light"],
   html[data-theme="dark"],
-  html[data-theme="system"] {
+  html[data-theme="system"],
+  html[data-theme="auto"] {
     color-scheme: dark only !important;
-    background: #000 !important;
+    background-color: var(--static-black, #000) !important;
+  }
+  
+  /* Force dark theme CSS variables even in light mode preference */
+  :root,
+  html {
+    --page-background: var(--static-black, #000) !important;
+    --neutral-on-background-strong: var(--static-white, #fff) !important;
+    --neutral-background-weak: #111 !important;
+    --neutral-background-medium: #222 !important;
+    --neutral-background-strong: #333 !important;
   }
 }
 
-/* Force dark theme regardless of data-theme attribute */
-html[data-theme="light"] {
-  background: #000 !important;
-  color: #fff !important;
+/* Block light theme styling completely */
+html[data-theme="light"],
+body[data-theme="light"],
+[data-theme="light"] {
+  background-color: var(--static-black, #000) !important;
+  color: var(--static-white, #fff) !important;
 }
 
-/* Ensure all backgrounds stay dark */
+/* Ensure critical elements stay dark */
 body,
 #__next,
-[data-theme="light"] {
-  background: #000 !important;
-  color: #fff !important;
+main,
+.page-background {
+  background-color: var(--static-black, #000) !important;
+  color: var(--static-white, #fff) !important;
 }
 
 /* :root {

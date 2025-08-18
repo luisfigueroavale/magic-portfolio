@@ -65,24 +65,6 @@ export default async function RootLayout({
             `,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Force dark theme immediately on load
-              document.documentElement.setAttribute('data-theme', 'dark');
-              document.documentElement.style.colorScheme = 'dark only';
-              // Prevent any theme changes
-              Object.defineProperty(document.documentElement, 'setAttribute', {
-                value: function(name, value) {
-                  if (name === 'data-theme' && value !== 'dark') {
-                    return; // Block any non-dark theme changes
-                  }
-                  return Element.prototype.setAttribute.call(this, name, value);
-                }
-              });
-            `,
-          }}
-        />
       </head>
       <body
         className="display-flex position-relative p-0 m-0 page-background flex-column align-center min-width-0 fill-width"

@@ -4,7 +4,7 @@ import '@/resources/custom.css'
 
 import classNames from "classnames";
 
-import { Background, Column, Flex, Meta, opacity, SpacingToken } from "@once-ui-system/core";
+import { Background, Flex, Meta, opacity, SpacingToken } from "@once-ui-system/core";
 import { Footer, Header, Providers } from '@/components';
 import { baseURL, effects, fonts, style, dataStyle, home } from '@/resources';
 
@@ -24,11 +24,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Flex
-      suppressHydrationWarning
-      as="html"
+    <html
       lang="en"
-      fillWidth
       className={classNames(
         fonts.heading.variable,
         fonts.body.variable,
@@ -112,8 +109,13 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <Providers>
-        <Column as="body" background="page" fillWidth margin="0" padding="0" horizontal="center">
+      <body
+        className="display-flex position-relative p-0 m-0 page-background flex-column align-center min-width-0 fill-width"
+        style={{
+          overscrollBehaviorX: "auto"
+        }}
+      >
+        <Providers>
           <Background
             position="fixed"
             mask={{
@@ -170,8 +172,8 @@ export default async function RootLayout({
             </Flex>
             <Footer/>
           </Flex>
-        </Column>
-      </Providers>
-    </Flex>
+        </Providers>
+      </body>
+    </html>
   );
 }

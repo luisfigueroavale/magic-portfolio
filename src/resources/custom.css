@@ -116,6 +116,14 @@ main,
   /*
 }*/
 
+/* Baseline token values to avoid invisible text if theme vars are unavailable */
+:root {
+  --page-background: #000; /* baseline background */
+  --neutral-on-background-strong: #ffffff; /* primary text */
+  --neutral-on-background-weak: rgba(255, 255, 255, 0.72); /* secondary text */
+  --brand-on-background-weak: #8ab4ff; /* links/brand accents */
+}
+
 /* Responsive Design - Mobile First Approach */
 * {
   box-sizing: border-box;

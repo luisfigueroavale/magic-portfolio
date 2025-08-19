@@ -49,6 +49,7 @@ export default async function RootLayout({
         <link rel="icon" type="image/x-icon" href="/luis-favicon.png?v=3" />
         <link rel="apple-touch-icon" href="/luis-favicon.png?v=3" />
         <link rel="shortcut icon" href="/luis-favicon.png?v=3" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <style
           dangerouslySetInnerHTML={{
             __html: `
@@ -62,11 +63,15 @@ export default async function RootLayout({
               /* FORCE DARK MODE - OVERRIDE ANY LIGHT MODE */
               * { color-scheme: dark only !important; }
               html, body { background: #000 !important; color: #fff !important; }
+              html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+              *, *::before, *::after { box-sizing: border-box; }
               
               /* Consistent navbar spacing for all pages on mobile */
               @media (max-width: 768px) {
                 .main-content-wrapper {
                   margin-top: 80px !important;
+                  /* On iOS devices with a notch, include the safe-area inset */
+                  margin-top: calc(80px + env(safe-area-inset-top)) !important;
                 }
               }
             `,

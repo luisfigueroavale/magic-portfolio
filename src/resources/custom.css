@@ -359,6 +359,19 @@ html, body {
   transition: all 0.3s ease;
 }
 
+/* Fix text visibility issues */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fix z-index stacking issues - minimal approach */
+main, article, section {
+  position: relative;
+  z-index: 1;
+}
+
 /* Touch-friendly interactions for mobile */
 @media (hover: none) and (pointer: coarse) {
   .navButton,

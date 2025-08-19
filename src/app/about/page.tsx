@@ -64,23 +64,14 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      {about.tableOfContent.display && (
-        <Column
-          left="0"
-          style={{ top: "50%", transform: "translateY(-50%)" }}
-          position="fixed"
-          paddingLeft="24"
-          gap="32"
-          className="s-flex-hide"
-        >
-          <TableOfContents structure={structure} about={about} />
-        </Column>
-      )}
-      <Flex fillWidth horizontal="center">
+      <Flex 
+        fillWidth 
+        horizontal="center"
+        className={styles.mainContainer}
+      >
         {about.avatar.display && (
           <Column
             className={styles.avatar}
-            position="sticky"
             minWidth="160"
             paddingX="l"
             paddingBottom="xl"
@@ -91,13 +82,23 @@ export default function About() {
             <Avatar src={person.avatar} size="xl" />
 
             {person.languages && person.languages.length > 0 && (
-              <Flex wrap gap="8">
+              <Flex wrap={false} gap="12" horizontal="center">
                 {person.languages.map((language) => (
                   <Tag key={language} size="l">
                     {language}
                   </Tag>
                 ))}
               </Flex>
+            )}
+            
+            {about.tableOfContent.display && (
+              <Column
+                className={styles.tableOfContents}
+                gap="32"
+                paddingLeft="24"
+              >
+                <TableOfContents structure={structure} about={about} />
+              </Column>
             )}
           </Column>
         )}
@@ -113,7 +114,7 @@ export default function About() {
               <Flex
                 fitWidth
                 border="brand-alpha-medium"
-                className={styles.blockAlign}
+                className={`${styles.blockAlign} ${styles.scheduleCallButton}`}
                 style={{
                   backdropFilter: "blur(var(--static-space-1))",
                 }}
@@ -175,11 +176,25 @@ export default function About() {
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience) => (
                   <Column key={`${experience.company}-${experience.role}`} fillWidth>
-                    <Flex fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
+                    <Flex 
+                      fillWidth 
+                      horizontal="between" 
+                      vertical="end" 
+                      marginBottom="4"
+                      className={styles.workExperienceHeader}
+                    >
+                      <Text 
+                        id={experience.company} 
+                        variant="heading-strong-l"
+                        className={styles.companyTitle}
+                      >
                         {experience.company}
                       </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                      <Text 
+                        variant="heading-default-xs" 
+                        onBackground="neutral-weak"
+                        className={styles.dateText}
+                      >
                         {experience.timeframe}
                       </Text>
                     </Flex>
@@ -259,9 +274,9 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <Flex fillWidth gap="l" wrap>
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                  <Column key={`${skill}-${index}`} flex={1} minWidth="160" gap="4">
                     <Text id={skill.title} variant="heading-strong-l">{skill.title}</Text>
                     <Text variant="body-default-m" onBackground="neutral-weak">
                       {skill.description}
@@ -294,7 +309,7 @@ export default function About() {
                     )}
                   </Column>
                 ))}
-              </Column>
+              </Flex>
             </>
           )}
         </Column>

@@ -6,7 +6,7 @@ import styles from "./BeautifulProjects.module.scss";
 
 export function BeautifulProjects() {
   return (
-    <Column fillWidth gap="xl" marginBottom="40" paddingX="l" className={styles.container}>
+    <Column fillWidth gap="xl" marginBottom="40" className={styles.container}>
       {/* CostCuts Project */}
       <Flex
         className={`costcuts-card ${styles.costcutsCard}`}

@@ -62,6 +62,13 @@ export default async function RootLayout({
               /* FORCE DARK MODE - OVERRIDE ANY LIGHT MODE */
               * { color-scheme: dark only !important; }
               html, body { background: #000 !important; color: #fff !important; }
+              
+              /* Consistent navbar spacing for all pages on mobile */
+              @media (max-width: 768px) {
+                .main-content-wrapper {
+                  margin-top: 80px !important;
+                }
+              }
             `,
           }}
         />
@@ -117,11 +124,12 @@ export default async function RootLayout({
           <Flex fillWidth minHeight="16" direction="column">
             <Header />
             <Flex
-              zIndex={0}
+              zIndex={1}
               fillWidth
               padding="l"
               horizontal="center"
               flex={1}
+              className="main-content-wrapper"
             >
               <Flex horizontal="center" fillWidth minHeight="0">
                 {children}
